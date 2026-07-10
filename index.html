@@ -11,22 +11,22 @@
             font-family: 'Prompt', sans-serif;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             height: 100vh; 
-            height: -webkit-fill-available; /* แก้ปัญหามุมมองบน iOS Safari */
+            height: -webkit-fill-available;
             overflow: hidden;
             touch-action: manipulation;
             user-select: none;
             position: relative;
         }
 
-        /* แก้ไข: ล็อกพื้นหลัง photo11.png แยกเลเยอร์ ห้ามขยับ ห้ามเลื่อน 100% */
+        /* ล็อกพื้นหลัง photo11.jpg แยกเลเยอร์ ห้ามขยับ ห้ามเลื่อน 100% */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: url('photo11.png') no-repeat center center;
+            background: url('photo11.jpg') no-repeat center center;
             background-size: cover;
             z-index: -1;
-            transform: translate3d(0, 0, 0); /* เปิดการใช้ GPU เรนเดอร์ ป้องกันภาพกระตุก */
+            transform: translate3d(0, 0, 0);
             will-change: transform;
         }
 
@@ -343,7 +343,6 @@
                     img.style.left = `calc(50% + ${finalX}px)`;
                     img.style.top = `calc(50% + ${finalY}px)`;
                     img.style.transform = `translate(-50%, -50%) rotate(${rotate}deg) scale(1)`;
-                    img.style.animationDelay = (Math.random() * 2) + "s";
                 }, i * 60);
             }
 
